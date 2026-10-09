@@ -1,6 +1,7 @@
 import pandas as pd 
 import numpy as np 
 import matplotlib.pyplot as plt 
+from pathlib import Path
  
 from sklearn.model_selection import train_test_split 
 from sklearn.pipeline import Pipeline 
@@ -21,7 +22,10 @@ def SalesAdvertise(DataPath):
     print("Step 1 : Load dataset") 
     print(Border) 
  
-    df = pd.read_csv(DataPath) 
+    BASE_DIR = Path(__file__).resolve().parent
+    DATASET_PATH = BASE_DIR / "Advertising.csv"
+
+    df = pd.read_csv(DATASET_PATH)
  
     print("Few records from the dataset : ") 
     print(df.head()) 
